@@ -1,3 +1,4 @@
+# Humble 버젼으로 명령어 수정
 # Intel RealSense D435 and rtab_map with ROS2
 
 This guide will help you use the Intel RealSense D435 camera in ROS2 and visualize the RGB and depth point cloud in RViz2. It also covers using RTAB-Map for mapping and localization with the Intel RealSense D435 camera.
@@ -9,8 +10,8 @@ This guide will help you use the Intel RealSense D435 camera in ROS2 and visuali
 You need to have the following packages installed:
 
 ```bash
-sudo apt install ros-foxy-realsense2-camera
-sudo apt install ros-foxy-rtabmap-ros
+sudo apt install ros-humble-realsense2-camera
+sudo apt install ros-humble-rtabmap-ros
 ```
 
 ## Usage
@@ -24,7 +25,7 @@ ros2 launch realsense2_camera rs_launch.py align_depth.enable:=true pointcloud.e
 2. Start mapping the environment using RTAB-Map with the command below:
 
 ```bash
-ros2 launch rtabmap_ros rtabmap.launch.py \
+ros2 launch rtabmap_launch rtabmap.launch.py \
  args:="--delete_db_on_start" \
  depth_topic:=/camera/aligned_depth_to_color/image_raw \
  rgb_topic:=/camera/color/image_raw \
